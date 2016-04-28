@@ -2,10 +2,6 @@ package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -19,9 +15,9 @@ public class DataInputProvider extends GenericWrappers {
 		String[][] data = null;
 
 		try {
-			FileInputStream fis = new FileInputStream(new File("./data/"+dataSheetName+".xls"));
-			HSSFWorkbook workbook = new HSSFWorkbook(fis);
-			HSSFSheet sheet = workbook.getSheetAt(0);	
+			FileInputStream fis = new FileInputStream(new File("./data/"+dataSheetName+".xlsx"));
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			XSSFSheet sheet = workbook.getSheetAt(0);	
 
 			// get the number of rows
 			int rowCount = sheet.getLastRowNum();
@@ -34,7 +30,7 @@ public class DataInputProvider extends GenericWrappers {
 			// loop through the rows
 			for(int i=1; i <rowCount+1; i++){
 				try {
-					HSSFRow row = sheet.getRow(i);
+					XSSFRow row = sheet.getRow(i);
 					for(int j=0; j <columnCount; j++){ // loop through the columns
 						try {
 							String cellValue = "";
@@ -62,6 +58,7 @@ public class DataInputProvider extends GenericWrappers {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return data;
 
 	}

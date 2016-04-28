@@ -20,10 +20,17 @@ public class CRMHomePage extends OpentapsWrappers{
 		return new CreateLeadPage();
 	}
 
-	public MyLeadPage clickLeads(){
+	public ClickLeadPage clickLeads(){
 		clickByLink(prop.getProperty("CRMSFA.ClickLeads.LinkText"));
-		return new MyLeadPage();
+		return new ClickLeadPage();
 	}
+	
+	public MergeLeadPage clickMergeLead() throws InterruptedException{
+		clickByLink(prop.getProperty("CRMSFA.click.mergeLead"));
+		Thread.sleep(1000);
+		return new MergeLeadPage();
+	}
+
 
 
 }

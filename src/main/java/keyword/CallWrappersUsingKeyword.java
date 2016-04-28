@@ -3,9 +3,6 @@ package keyword;
 import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.Method;
-
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import wrappers.GenericWrappers;
@@ -17,13 +14,13 @@ public class CallWrappersUsingKeyword {
 		FileInputStream file = new FileInputStream(new File(fileName));
 
 		// Create Workbook instance holding reference to .xlsx file
-		HSSFWorkbook workbook = new HSSFWorkbook(file);
+		XSSFWorkbook workbook = new XSSFWorkbook(file);
 
 		Class<GenericWrappers> wrapper = GenericWrappers.class;
 	    Object wM = wrapper.newInstance();
 	    
 		// Get first/desired sheet from the workbook
-		HSSFSheet sh = workbook.getSheetAt(0);
+		XSSFSheet sh = workbook.getSheetAt(0);
 		for (int i = 1; i <= sh.getLastRowNum(); i++) {
 
 			String keyword = "" ;

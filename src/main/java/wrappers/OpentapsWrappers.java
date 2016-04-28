@@ -49,9 +49,9 @@ public class OpentapsWrappers extends GenericWrappers {
 	}
 	
 	@AfterMethod
-	public void afterMethod(){
+	/*public void afterMethod(){
 		quitBrowser();
-	}
+	}*/
 	
 	@DataProvider(name="fetchData")
 	public Object[][] getData(){
