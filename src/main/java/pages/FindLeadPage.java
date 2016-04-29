@@ -47,6 +47,22 @@ public class FindLeadPage extends OpentapsWrappers{
 		return new FindLeadPage();
 	}
 	
+	public FindLeadPage EnterFirstname(String data){	
+		enterTextByXpath(prop.getProperty("FindLead.EnterFirstname.Xpath"),data);
+		return this;
+		
+	}
+	public FindLeadPage SearchFindLead(){
+		clickByXpath(prop.getProperty("FindLead.ClickFindLead.Xpath"));
+		return this;
+	}
+	public ViewLeadEditPage ClickLead(String data){
+		clickByLink(data);
+		
+		return new ViewLeadEditPage();
+		
+	}
+	
 }
 
 

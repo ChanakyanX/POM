@@ -18,6 +18,14 @@ public class ClickLeadPage extends OpentapsWrappers{
 		return new MergeLeadPage();
 	}
 	
+	public FindLeadPage clickFindLeads() throws InterruptedException{
+		clickByLink(prop.getProperty("Lead.MergeLead.clickFindLeadToVerifyMerge"));
+		Thread.sleep(1000);
+		return new FindLeadPage();
+	}
+	
+	
+	
 
 }
 
